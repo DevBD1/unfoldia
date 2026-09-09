@@ -2,13 +2,13 @@ import './style.css';
 import { createGraph } from './graph.js';
 import { rules, evaluate, samples, restore, complete, lessonId } from './model.js';
 
-document.title = 'Partwise — Calculus Lab';
+document.title = 'Unfoldia — Calculus Lab';
 const key = `partwise:calculus:${lessonId}`;
 let raw;
 try { raw = localStorage.getItem(key); } catch {}
 const progress = restore(raw);
 document.querySelector('#app').innerHTML = `
-<header><a class="brand" href="?lab=calculus">partwise<span> / calculus lab</span></a><a href="?lab=ev">EV Lab ↗</a></header>
+<header><a class="brand" href="?lab=calculus">Unfoldia<span> / calculus lab</span></a><a href="?lab=ev">EV Lab ↗</a></header>
 <main>
   <nav class="stages" aria-label="Öğrenme kademeleri"><span aria-current="step">01 · Pre-Calculus</span><span>02 · Calculus I <small>Yakında</small></span><span>03 · Calculus II <small>Yakında</small></span></nav>
   <div class="heading"><div><p class="eyebrow">PRE-CALCULUS / 01 · FONKSİYONLAR</p><h1>Bir girdi. Bir kural.<br><em>Bir çıktı.</em></h1></div><p class="lede">Fonksiyon, izin verilen her girdiye tam bir çıktı eşleyen kuraldır. Bu deneyde sayıları kullanıyoruz. Ön bilgi gerekmez.</p></div>

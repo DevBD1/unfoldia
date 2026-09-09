@@ -1,5 +1,6 @@
 {
   "name": "partwise",
+  "description": "Unfoldia — Explore the parts, understand the whole. Open-source interactive learning across subjects.",
   "version": "0.1.0",
   "private": true,
   "type": "module",

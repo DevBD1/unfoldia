@@ -10,8 +10,8 @@ const progress = restoreSets(raw);
 let selected = -2, scenario = 'square';
 const visited = steps.map(() => new Set());
 const $ = s => document.querySelector(s);
-document.title = 'Partwise — Fonksiyonlar ve kümeler';
-$('#app').innerHTML = `<header><a class="brand" href="?lab=calculus">partwise<span> / calculus lab</span></a><a href="?lab=ev">EV Lab ↗</a></header><main>
+document.title = 'Unfoldia — Fonksiyonlar ve kümeler';
+$('#app').innerHTML = `<header><a class="brand" href="?lab=calculus">Unfoldia<span> / calculus lab</span></a><a href="?lab=ev">EV Lab ↗</a></header><main>
 <nav class="stages" aria-label="Öğrenme kademeleri"><span aria-current="step">Pre-Calculus</span><span>Calculus I · Yakında</span><span>Calculus II · Yakında</span></nav>
 <div class="heading"><div><p class="eyebrow">FONKSİYONLAR / TEMEL KAVRAMLAR</p><h1>Her okun<br><em>bir anlamı var.</em></h1></div><p class="lede">Tanım, değer ve görüntü kümelerini keşfet. Sonra bir ilişkinin neden fonksiyon olduğunu kendin açıklayabilirsin.</p></div>
 <nav id="steps" class="step-nav" aria-label="Ders adımları"></nav>

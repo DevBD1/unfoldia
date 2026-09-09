@@ -1,6 +1,12 @@
-# Partwise
+# Unfoldia
 
-**Learn how things work.** An early-stage interactive education platform built with Vite and JavaScript. Current lesson content is Turkish.
+**Explore the parts, understand the whole.**
+
+An open-source interactive learning platform across subjects, built with Vite and JavaScript. Our vision is a global, multilingual community where learners explore and educators, translators, designers, and developers build understanding together.
+
+Today the catalog supports English and Turkish; lesson content is Turkish. Broader language and subject coverage is a direction, not a claim of completed courses. See the [product vision](docs/PRODUCT.md).
+
+Formerly **Partwise**. Existing URLs, repository location, the internal `partwise` package name, and browser storage keys remain unchanged; no progress migration is required.
 
 - **EV Lab:** eight systems, twenty component targets, guided learning and simplified Three.js mechanisms. Not a Tesla digital twin or service guide.
 - **Calculus Lab:** introductory sets/functions lessons with synchronized D3 diagrams, tables and graphs. Calculus I/II are planned, not complete courses.

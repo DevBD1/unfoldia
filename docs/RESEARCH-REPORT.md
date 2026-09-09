@@ -136,7 +136,7 @@ Mevcut prototipteki `geometry.js` temel Three.js primitifleri (kutu/silindir) ku
 ### Yol 1: 100% Özgün Blender Üretimi (Tavsiye Edilen / Birincil Yol)
 - **Açıklama:** Teardown referansları (WeberAuto, All EV, Ingineerix) ve Tesla servis şemaları baz alınarak tahrik ünitesinin (gövde, motor, inverter, dişliler) sıfırdan Blender'da low-to-mid poly teknik model olarak üretilmesi.
 - **Geometri Kalitesi:** Mükemmel. WebGL için optimize topoloji (20k–30k üçgen), temiz UV'ler ve malzeme ayrımları (Döküm Alüminyum, Bakır Sargı, Silikon Karbür, PCB, Çelik Dişli).
-- **Lisans Durumu:** 100% temiz ve Partwise mülkiyetinde. İstenen açık lisansla (MIT/CC-BY/Apache 2.0) dağıtılabilir.
+- **Lisans Durumu:** 100% temiz ve Unfoldia mülkiyetinde. İstenen açık lisansla (MIT/CC-BY/Apache 2.0) dağıtılabilir.
 - **Entegrasyon Maliyeti:** Düşük. Three.js `geometry.js` içindeki parça kimlikleri ve rotasyon eksenleriyle birebir eşleşen node hiyerarşisi ilk günden doğru kurulur.
 - **Tahmini Süre:** 15–20 çalışma saati.
 

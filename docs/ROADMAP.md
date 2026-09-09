@@ -1,4 +1,12 @@
-# Partwise — Görsel üretim ve platform yol haritası
+# Unfoldia — Görsel üretim ve platform yol haritası
+
+## Güncel platform yönü
+
+Ana yön [Unfoldia ürün vizyonudur](PRODUCT.md): küresel, çok dilli ve toplulukla
+gelişen açık kaynaklı etkileşimli öğrenme. EV ve Calculus mevcut konulardır;
+dersler bugün Türkçedir. Öncelik sırası: yeni platform kimliği ve vizyonu,
+açık kaynak katkı katmanı, ardından kaynakları doğrulanmış ders çevirileri ve
+yeni konu dilimleri. Aşağıdaki görsel üretim planı bu yönün EV odaklı alt planıdır.
 
 Durum: plan. Tarih: 2026-09-08. Bu dosya gelecek işleri tarif eder; model araştırması,
 Blender üretimi veya çok konulu platform tamamlanmış değildir.
@@ -7,7 +15,7 @@ Blender üretimi veya çok konulu platform tamamlanmış değildir.
 
 EV Lab'i tanınabilir, teknik kaynaklarla ilişkilendirilmiş ve iç işleyişi gerçekten
 görülebilen bir öğrenme deneyimine dönüştürmek. Ardından aynı yöntemi başka konulara
-taşıyabilen Partwise platformunu kurmak. Gerçekçi geometri ile doğrulanmış fizik ayrı hedeflerdir.
+taşıyabilen Unfoldia platformunu kurmak. Gerçekçi geometri ile doğrulanmış fizik ayrı hedeflerdir.
 
 Bugünkü güçlü taraf: parça hiyerarşisi, iki seviye, ders/görev/quiz, deneyler, seçim,
 çalışma görünümü ve kaynak etiketleri. Zayıf taraf: primitive ağırlıklı geometri,
