@@ -2,6 +2,13 @@ node_modules/
 dist/
 .vercel/
 .DS_Store
+.env
+.env.*
+!.env.example
+*.log
+coverage/
+*.pem
+*.key
 
 # Local research source; this PDF exceeds GitHub's regular 100 MB file limit.
 docs/resources/*.pdf
