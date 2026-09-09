@@ -1,6 +1,6 @@
 # Security
 
-Partwise is a static educational prototype, not a validated engineering simulator. No credentials or learner data should be added to this repository.
+Unfoldia is a static educational prototype, not a validated engineering simulator. No credentials or learner data should be added to this repository.
 
 For sensitive findings, use GitHub's private vulnerability reporting if the owner has enabled it, or an established private owner contact. Do not post secrets or exploit details in public issues. Private reporting has not been enabled by this code change.
 

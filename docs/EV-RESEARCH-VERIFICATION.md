@@ -15,7 +15,7 @@ Bu rapor, [EV-STATUS-HANDOFF.md](EV-STATUS-HANDOFF.md) kapsamında belirlenen ar
 - **Telif ve Risk Dili:** Belgelerimizde "sıfır telif riski" veya "garantili performans" gibi mutlak/abartılı ifadeler kullanılmaz. Bunun yerine **bağımsız özgün modelleme ile telif hakkı ihlali riskinin en aza indirilmesi** ve **ölçüme dayalı WebGL optimizasyon hedefleri** esas alınır.
 - **Katalog Taraması:** "Hiçbir model yok" genellemesi yerine; taranan kataloglar (Sketchfab, Blend Swap, GrabCAD, GitHub OpenInverter, Thingiverse) ve bulunan adayların sınırları (yalnızca dış tarama kabuğu olması, iç mekanizmanın bulunmaması, lisans kısıtları veya yanlış varyant olması) açıkça belgelenmiştir.
 - **Süre Değerlendirmesi:** Tüm iş gücü süreleri ölçülmüş kesin süreler olarak değil, **tahmini çalışma saati** olarak raporlanmıştır.
-- **Proje Statüsü:** Partwise tarafından bu aşamada hiçbir 3D varlık satın alınmamış, üretim başlatılmamış ve harici yayınlama yapılmamıştır. Calculus Lab önceliği korunmaktadır.
+- **Proje Statüsü:** Unfoldia tarafından bu aşamada hiçbir 3D varlık satın alınmamış, üretim başlatılmamış ve harici yayınlama yapılmamıştır. Calculus Lab önceliği korunmaktadır.
 
 ---
 

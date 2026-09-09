@@ -1,46 +1,51 @@
-# Partwise
+# Unfoldia
 
-**Learn how things work.**
+**Explore the parts, understand the whole.**
 
-Parçaları, bağlantıları ve neden-sonuç ilişkilerini keşfederek öğrenme platformu.
-Part + wise: parçaları anlamak yoluyla bilgi kazanmak. EV'ye bağlı değil; anatomi,
-enerji sistemleri, makineler ve başka konulara genişlemeye uygun bir ürün adı.
-İsim tercihi yapılmıştır; ticari marka, domain ve sosyal hesap uygunluğu doğrulanmamıştır.
-Kamuya açılmadan önce ilgili pazarlarda benzer ad taraması yapılmalıdır.
+Unfoldia is an open-source platform for interactive learning across subjects.
+Our direction is global, multilingual, and community-driven: learners investigate
+parts, relationships, and cause and effect; educators, translators, designers,
+and developers help make that understanding available to more people.
 
-## Ürün ailesi
+## Available today
 
-- Platform: **Partwise**.
-- Mevcut ilk konu: **EV Lab**. EV Atlas eski prototip adıdır.
-- Yeniden kullanılabilir geliştirme yöntemi: **Explorable**, DevBD1 agent skill'i.
-- İlerideki konu adları konu bazlı olur; her konu için yeni ana marka üretilmez.
+- A browser-based catalog with English and Turkish presentation.
+- Turkish EV Lab and introductory Calculus Lab activities, with local progress.
+- No account, backend, analytics, or hosted community submission system.
+- MIT-licensed original code and educational content; third-party rights are separate.
 
-## Görsel tavır
+English catalog copy does not mean English lessons are available. Calculus I/II
+are planned, not complete courses. EV mechanisms are schematic learning models,
+not validated engineering simulations or service instructions.
 
-Sakin, editoryal ve teknik bir öğrenme aracı. Öncelik: tanınabilir silüet, anlamlı
-malzeme ayrımı, iyi aydınlatılmış iç mekanizma ve okunabilir açıklamalar.
-Ne rastgele primitive yığınları ne de eğitim içeriğini örten sinematik otomobil reklamı.
-Mevcut yeşil arayüz bir başlangıçtır; nihai sanat yönetimi onayı değildir.
-Logo bu teslimde basit yazı işaretidir; özgün marka tasarımı sonraki görsel aşamada ele alınır.
+## Product principles
 
-## Platforma dönüşüm
+1. Learn by investigating: connect an action to an observable result and explanation.
+2. Go beyond one subject: mathematics, engineering, science, arts, and other fields
+   can share a home without being forced into a single renderer or lesson format.
+3. Make knowledge accessible: readable explanations, keyboard access, narrow-screen
+   layouts, and explicit language availability matter as much as visual appeal.
+4. Grow through community review: sources, model limits, translations, and tests
+   must be reviewable. Open source is an invitation, not automatic publishing rights.
+5. Respect learners: no account required today; preserve progress and stable links.
 
-Bugünkü uygulama tek konulu ve Türkçedir. Çok konulu platform bitmiş gibi sunulmaz.
-İkinci konu eklenirken ortak keşif motoru ile konu içeriği ayrılacak:
+## Direction, not shipped features
 
-```text
-platform shell / topic catalog
-  explorer: selection, cameras, layout, highlight, accessible panels
-  learning: route, tasks, quizzes, versioned progress
-  topic package: metadata, parts, sources, lessons, assets, mechanism adapters
-```
+Next priorities are contributor onboarding and review guidelines, followed by
+reviewed lesson translations and additional source-backed learning slices.
+Broader subject coverage, localized lessons, and shared teaching tools are future
+work. Accounts, cloud sync, AI tutors, and a user-generated-content backend are
+not commitments or requirements for contributing.
 
-`topicId` + `partId` + `lessonId` kalıcı kimliklerdir. Three.js nesne adları bunların
-yerine geçmez. Sayısal deneyler konu paketine aittir; fizik zorunlu olmayan konular
-aynı denklemlere zorlanmaz. React, backend, hesap ve AI entegrasyonu varsayılan değildir.
-İkinci konu, ortak motorun gerçekten yeniden kullanılabildiğinin testi olacaktır.
+## Identity and compatibility
 
-Eski `ev-atlas` kayıtları şimdilik aynen kullanılır. Konu bazlı kayıt yapısına geçişte
-eski veri okunup EV konusuna taşınır, yeni görevler tamamlanmış sayılmaz; orijinal kayıt
-başarılı göç doğrulanana kadar silinmez. `127.0.0.1:5173` origin'inin değişmesi tarayıcı
-kayıt erişimini etkiler; klasör adının değişmesi etkilemez.
+Unfoldia replaces the public-facing Partwise name. EV Lab and Calculus Lab retain
+their names and stable IDs. The repository URL, package identifier `partwise`,
+existing routes and query aliases, and all `partwise:*` / `ev-atlas` storage keys
+remain unchanged. This is not a repository, domain, or data migration.
+Origins still isolate browser progress; a future domain change needs its own plan.
+
+The wordmark is Unfoldia. The canonical English tagline is “Explore the parts,
+understand the whole.” Turkish supporting copy is “Parçaları keşfet, bütünü anla.”
+Trademark, domain, and social-handle availability have not been verified.
+Explorable remains the reusable development skill, not a separate learner brand.
