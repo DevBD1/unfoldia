@@ -40,3 +40,15 @@
   Physical iOS Safari focus/zoom behavior was not tested.
 - No new storage key or lesson language change. Query-only legacy links retain
   their platform-root meaning; external URLs and in-page fragments are untouched.
+
+## PR #3 review follow-up
+
+- All three suggestions accepted: checklist requires both check commands, community
+  section has a bilingual heading and `aria-labelledby`, and issue-form guidance
+  uses clickable links to the repository's current canonical `DevBD1/unfoldia` URL.
+- `npm run check`: 59 tests, build and dist safety checks passed. `check:docs`
+  also checks checklist commands and issue-form links; all four YAML files parse.
+- Chrome exposes the community heading as a named region in both languages;
+  Turkish 390px layout inspected with no clipping and no console errors recorded.
+- Localization documentation now describes URL-carried navigation preference.
+  GitHub form rendering remains a post-default-branch-merge check.

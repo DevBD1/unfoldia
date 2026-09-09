@@ -17,11 +17,15 @@ export function renderCatalog(host, labs, notFound = false) {
   const grid = host.querySelector('.lab-grid');
   const community = document.createElement('section');
   community.className = 'community';
+  const communityHeading = document.createElement('h2');
+  communityHeading.id = 'community-heading';
+  communityHeading.textContent = copy.communityHeading;
+  community.setAttribute('aria-labelledby', communityHeading.id);
   const invitation = document.createElement('p'); invitation.textContent = copy.community;
   const contribute = document.createElement('a');
   contribute.href = 'https://github.com/DevBD1/partwise/blob/main/CONTRIBUTING.md';
   contribute.textContent = copy.contribute;
-  community.append(invitation, contribute);
+  community.append(communityHeading, invitation, contribute);
   grid.after(community);
   for (const lab of labs) {
     const card = document.createElement('article');

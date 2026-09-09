@@ -18,7 +18,7 @@ body:
     id: plan
     attributes:
       label: Translation scope and terminology
-      description: Read docs/LOCALIZATION.md. Note untranslated sections, directionality, and terms requiring subject expertise.
+      description: Read [the localization guide](https://github.com/DevBD1/unfoldia/blob/main/docs/LOCALIZATION.md). Note untranslated sections, directionality, and terms requiring subject expertise.
     validations:
       required: true
   - type: textarea

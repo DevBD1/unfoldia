@@ -15,6 +15,7 @@ export const catalogCopy = {
     fallback: 'Continue exploring with one of the labs below.',
     availability: 'Catalog: English and Turkish. Current lessons: Turkish. More languages and subjects are part of our community-driven vision.',
     explore: 'Explore in Turkish →', language: 'Catalog language',
+    communityHeading: 'Build understanding together',
     contribute: 'Help build Unfoldia →', community: 'Contribute explanations, translations, source reviews, accessible design, or code.',
     footer: 'No account required. Progress stays in this browser; it does not automatically transfer between browsers or domains.',
     labs: {
@@ -28,6 +29,7 @@ export const catalogCopy = {
     fallback: 'Aşağıdaki konulardan devam edebilirsin.',
     availability: 'Katalog: Türkçe ve İngilizce. Mevcut dersler: Türkçe. Daha fazla dil ve konu, toplulukla büyüme vizyonumuzun parçası.',
     explore: 'Türkçe keşfet →', language: 'Katalog dili',
+    communityHeading: 'Birlikte öğren, birlikte geliştir',
     contribute: 'Unfoldia’ya katkı sağla →', community: 'Açıklamalar, çeviriler, kaynak incelemeleri, erişilebilir tasarım veya kod ile katkıda bulun.',
     footer: 'Hesap gerekmez. İlerlemen bu tarayıcıda kalır; tarayıcı veya alan adı değişince otomatik taşınmaz.',
   },

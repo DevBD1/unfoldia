@@ -4,7 +4,7 @@ title: "[Bug] "
 body:
   - type: markdown
     attributes:
-      value: "For sensitive findings, follow SECURITY.md. Do not include secrets or learner data."
+      value: "For sensitive findings, follow [SECURITY.md](https://github.com/DevBD1/unfoldia/blob/main/SECURITY.md). Do not include secrets or learner data."
   - type: textarea
     id: reproduction
     attributes:

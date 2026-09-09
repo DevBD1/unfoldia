@@ -4,8 +4,10 @@ Unfoldia's direction is multilingual; today's catalog supports `en` and `tr`,
 while EV and Calculus lesson content remains Turkish. The catalog language selector
 changes only the catalog. It uses `?lang=en` or `?lang=tr`, falling back to the
 browser language (Turkish for `tr*`, English otherwise), and writes no storage.
-Lab links stay unchanged and lessons declare Turkish. Catalog preference is not
-persisted when leaving the page; this is not a complete application i18n system.
+Existing lab paths and aliases remain supported, with `lang` carried on internal
+navigation links so returning to the catalog retains the choice. Lessons still
+declare Turkish. No preference is written to storage: opening a bare URL without
+`lang` uses the browser fallback. This is not a complete application i18n system.
 
 ## Propose a translation
 
