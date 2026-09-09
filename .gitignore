@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.vercel/
+.DS_Store
+
+# Local research source; this PDF exceeds GitHub's regular 100 MB file limit.
+docs/resources/*.pdf

@@ -1,0 +1,32 @@
+import { batteryExperiment, motorExperiment, inverterExperiment, gearsExperiment } from './physics.js';
+
+export const experimentValues = {
+  battery: { series: 96, parallel: 46, cellVoltage: 3.6, cellAh: 4.8, loadKW: 30, usableFraction: 0.9 },
+  motor: { torqueNm: 100, rpm: 2000 },
+  inverter: { dcVoltage: 350, modulation: 0.8, electricalHz: 50, time: 0 },
+  gears: { inputRpm: 4000, inputTorqueNm: 100, ratio: 9, efficiency: 1, turn: 0 },
+};
+const config = {
+ battery: {title:'Enerji deposunu dene',note:'Yükü artır: depodaki enerji aynı kalırken akım ve çalışma süresi nasıl değişiyor?',fields:[['loadKW','Çekilen güç','kW',0,150,5],['series','Seri hücre sayısı','adet',12,120,1],['parallel','Paralel hücre sayısı','adet',1,60,1]],formula:'V = Ns × Vhücre · Ah = Np × Ahhücre · E = V × Ah / 1000 · I = 1000P / V · t = Ekullanılabilir / P',assumption:'3,6 V ve 4,8 Ah örnek hücre; kullanılabilir enerji %90. Sabit gerilim ve kayıpsız dönüşüm kabul edilir. Bu değerler Tesla paket spesifikasyonu değildir.'},
+ motor: {title:'Torku harekete çevir',note:'Tork döndürme etkisidir. Devir, milin bir dakikada yaptığı tur sayısıdır. İkisini değiştir ve gücü karşılaştır.',fields:[['torqueNm','Motor torku','Nm',0,300,10],['rpm','Mil devri','dev/dk',0,10000,100]],formula:'ω = 2πn / 60 · P = T × ω / 1000 [kW]',assumption:'Sabit tork ve devir bağımsız seçilir. Gerçek motorun tork-devir zarfı, kayıpları ve sıcaklık sınırları modellenmez. Ekrandaki dönüş yavaşlatılmıştır.'},
+ inverter: {title:'DC’den üç faza',note:'Batarya sabit yönlü gerilim sağlar. İnverter, üç motor fazına zaman içinde değişen gerilim uygular.',fields:[['dcVoltage','DC bağlantı gerilimi','V',100,450,10],['modulation','Modülasyon oranı','',0,1,.05],['electricalHz','Elektriksel frekans','Hz',1,100,1]],formula:'Vfaz,tepe = m × VDC / 2 · Va = Vtepe sin(ωt) · Vb = Vtepe sin(ωt − 120°) · Vc = Vtepe sin(ωt + 120°)',assumption:'İdeal sinüzoidal PWM ortalama modeli. Eğriler anahtarlama darbeleri değil faz gerilimlerinin ortalamasıdır. 3D anahtar gösterimi yavaşlatılmış, temsili bir görselleştirmedir.'},
+ gears: {title:'Devri azalt, torku artır',note:'Redüksiyon, motorun yüksek devrini düşürür. Viraj sürgüsü, diferansiyelin sağ ve sol tekerleğe farklı hızlar vermesini gösterir.',fields:[['inputRpm','Motor devri','dev/dk',0,10000,100],['inputTorqueNm','Giriş torku','Nm',0,300,10],['ratio','Dişli oranı',': 1',2,12,.5],['turn','Viraj farkı','',-.6,.6,.1]],formula:'nçıkış = ngiriş / i · Tçıkış = Tgiriş × i × η · (nsol + nsağ) / 2 = nçıkış',assumption:'İdeal açık diferansiyel, η = 1. Lastik kayması ve yol tutuşu yok sayılır. Oran ve viraj farkı örnektir; görsel diş sayısı seçilen oranın teknik çizimi değildir.'},
+};
+const number = (v, digits=1) => Number(v).toLocaleString('tr-TR',{maximumFractionDigits:digits});
+export function experimentMarkup(system, mode) {
+ const c=config[system]; if(!c)return '';
+ return `<section class="experiment" aria-label="${c.title}"><div class="section-label">ÇALIŞAN MEKANİZMA <span>HESAPLANMIŞ</span></div><h3>${c.title}</h3><p>${c.note}</p><div class="experiment-fields">${c.fields.map(([key,label,unit,min,max,step])=>`<label class="experiment-field" for="exp-${key}"><span>${label}<output id="value-${key}">${number(experimentValues[system][key],2)} ${unit}</output></span><input id="exp-${key}" data-param="${key}" type="range" min="${min}" max="${max}" step="${step}" value="${experimentValues[system][key]}"/></label>`).join('')}</div>${system==='inverter'?'<svg class="phase-chart" viewBox="0 0 280 105" role="img" aria-label="Bir elektriksel periyotta 120 derece aralıklı üç faz gerilimi"></svg><div class="phase-legend">A — &nbsp; B - - &nbsp; C ··· &nbsp; / 1 elektriksel periyot</div>':''}<div class="experiment-results" aria-live="polite"></div><button id="run-experiment" class="primary">▶ Mekanizmayı çalıştır</button><p class="motion-note">${matchMedia('(prefers-reduced-motion: reduce)').matches?'Azaltılmış hareket etkin: animasyon yerine sabit durum ve sayısal sonuçlar gösterilir.':'Animasyon öğretim amacıyla yavaşlatılmıştır.'}</p><details ${mode==='advanced'?'open':''}><summary>Denklemler ve model sınırları</summary><code>${c.formula}</code><p>${c.assumption}</p></details></section>`;
+}
+export function bindExperiment(host,system,{onRun,onAdjust,onParams}) {
+ if(!config[system])return;
+ const update=()=>{
+  const p=experimentValues[system];let outputs=[];
+  if(system==='battery'){const r=batteryExperiment(p);outputs=[['Paket gerilimi',`${number(r.voltage)} V`],['Kapasite',`${number(r.capacityAh)} Ah`],['Nominal / kullanılabilir enerji',`${number(r.nominalKWh)} / ${number(r.usableKWh)} kWh`],['Çekilen akım',`${number(r.currentA)} A`],['İdeal süre',r.durationHours===null?'Yük yok':`${number(r.durationHours,2)} saat`]];}
+  if(system==='motor'){const r=motorExperiment(p);outputs=[['Mekanik güç',`${number(r.powerKW)} kW`],['Açısal hız',`${number(r.angularSpeed)} rad/s`]];}
+  if(system==='inverter'){const r=inverterExperiment(p);outputs=[['Faz tepe gerilimi',`${number(r.phasePeakVoltage)} V`],['Hatlar arası RMS',`${number(r.lineRmsVoltage)} V`]];const svg=host.querySelector('.phase-chart');svg.innerHTML='<path d="M0 52H280" stroke="#647366" stroke-width=".5"/>'+['#c6ef83','#85cad3','#e3b283'].map((color,i)=>{const points=Array.from({length:81},(_,j)=>{const sample=inverterExperiment({...p,time:j/80/p.electricalHz});return `${j*3.5},${52-sample.phaseVoltages[i]/225*43}`;}).join(' ');return `<polyline points="${points}" fill="none" stroke="${color}" stroke-width="2" stroke-dasharray="${['none','7 3','2 3'][i]}"/>`;}).join('');}
+  if(system==='gears'){const r=gearsExperiment(p);outputs=[['Devir: sol / sağ',`${number(r.leftRpm,0)} / ${number(r.rightRpm,0)} dev/dk`],['Toplam çıkış torku',`${number(r.outputTorqueNm)} Nm`],['Güç: giriş / çıkış',`${number(r.inputPowerKW)} / ${number(r.outputPowerKW)} kW`]];}
+  host.querySelector('.experiment-results').innerHTML=outputs.map(([label,value])=>`<div><span>${label}</span><strong>${value}</strong></div>`).join('');
+ };
+ host.querySelectorAll('[data-param]').forEach(input=>input.addEventListener('input',()=>{const key=input.dataset.param;experimentValues[system][key]=Number(input.value);const f=config[system].fields.find(f=>f[0]===key);host.querySelector(`#value-${key}`).textContent=`${number(input.value,2)} ${f[2]}`;update();onParams(experimentValues[system]);onAdjust(system);}));
+ host.querySelector('#run-experiment').onclick=()=>onRun(system,experimentValues[system]);update();
+}

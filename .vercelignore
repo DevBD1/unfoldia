@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.vercel/
+.git/
+.DS_Store
+
+# Development-only files and research documents are not part of the web build.
+**/*.test.js
+VERIFICATION.md
+docs/

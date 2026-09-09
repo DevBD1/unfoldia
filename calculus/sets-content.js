@@ -1,0 +1,38 @@
+export const steps = [
+  {
+    title: 'Bir küme, bir eleman',
+    body: '<p>Bir <b>küme</b>, elemanlardan oluşan bir topluluktur. A = {−2, −1, 0, 1, 2} yazısı, A kümesinde bu beş sayının bulunduğunu söyler. Süslü parantezler topluluğun sınırıdır; sıra önemli değildir, tekrarlar yeni eleman eklemez.</p><p>Bir <b>eşleştirme</b>, soldaki bir elemanı sağdaki bir elemana bağlar. Örneğin −2 → 4 oku, −2 girdisinin 4 çıktısına bağlandığını gösterir. Grafikte aynı ilişki (−2, 4) noktasıdır: önce yatay, sonra dikey koordinat okunur.</p>',
+    task: '−2 girdisini seç. Turuncu oku, tablo satırını ve grafikteki noktayı birlikte bul.',
+    question: 'A = {−2, −1, 0, 1, 2} kümesinde kaç eleman var?',
+    options: ['4', '5', '2'], answer: 1,
+    correct: 'Beş: −2, −1, 0, 1 ve 2. Negatif sayılar ve sıfır da birer elemandır.',
+    hint: 'Elemanları tek tek say: −2, −1, 0, 1, 2. En büyük sayı, eleman sayısı değildir.',
+  },
+  {
+    title: 'Üç farklı küme',
+    body: '<p><b>Tanım kümesi A</b>, izin verilen girdilerdir. Bu örnekte yalnızca −2, −1, 0, 1 ve 2 kullanılabilir; 3 girdi olarak seçilemez.</p><p><b>Değer kümesi B</b>, hedef olarak belirlediğimiz kümedir: {0, 1, 2, 3, 4}. B’deki her elemana ulaşılması gerekmez.</p><p><b>Görüntü kümesi f(A)</b>, A’daki girdilerden gerçekten elde edilen çıktılardır. Kare kuralı ile çıktılar 4, 1, 0, 1, 4 olur. Tekrarları çıkarınca {0, 1, 4} kalır. Görüntü, değer kümesinin içinde yer alır; burada 2 ve 3’e hiç ok gelmez.</p><p>İngilizce karşılıkları: domain, codomain ve image/range. Burada “değer kümesi”ni hedef küme anlamında kullanıyoruz.</p>',
+    task: '0 ve ardından 2 girdilerini seç. Hedefteki 2 ile girdi olan 2’nin farklı rollerde olduğuna dikkat et.',
+    question: 'Kare kuralında görüntü kümesi hangisi?',
+    options: ['{0, 1, 2, 3, 4}', '{−2, −1, 0, 1, 2}', '{0, 1, 4}'], answer: 2,
+    correct: 'Yalnızca {0, 1, 4}. Bunlara ok geliyor; 2 ve 3 hedef kümede olsa da elde edilmiyor.',
+    hint: 'Sağdaki bütün sayıları değil, gerçekten ok gelenleri say. Yeşil dolgulu hedefler 0, 1 ve 4.',
+  },
+  {
+    title: 'Ne zaman fonksiyon olur?',
+    body: '<p>A’dan B’ye bir ilişkinin <b>fonksiyon</b> olması için A’daki <b>her</b> elemandan <b>tam bir</b> çıktı çıkmalıdır. “Her”, girdinin boşta kalmamasını; “tam bir”, bir girdinin iki farklı çıktıya ayrılmamasını söyler.</p><p>−2 → 4 ve 2 → 4 birlikte olabilir: bunlar farklı girdilerdir, her birinin tek çıktısı vardır. B’deki 2 ve 3’e ok gelmemesi de sorun değildir.</p><p>Ancak 0’ın okunu kaldırırsak bir girdi boşta kalır. 2’den hem 4’e hem 3’e ok çizersek bir girdinin iki çıktısı olur. Bu iki ilişki, seçtiğimiz A üzerinde fonksiyon değildir.</p>',
+    task: 'Üç ilişkiyi de sırayla seç: kare, eksik ok, iki ok. Ok diyagramı ve grafikte ne değiştiğini incele.',
+    question: 'Hangi durum fonksiyon olmaya engel değildir?',
+    options: ['0 girdisinin çıktısının olmaması', '−2 ve 2 girdilerinin ikisinin de 4 vermesi', '2 girdisinin hem 3 hem 4 vermesi'], answer: 1,
+    correct: 'Farklı girdiler aynı çıktıyı verebilir. −2 ve 2’nin her birinden hâlâ tek ok çıkıyor.',
+    hint: 'Kare örneğine dön: −2’den bir ok, 2’den bir ok çıkıyor. Ortak hedef 4 olması bu iki girdiyi tek girdi yapmaz.',
+  },
+  {
+    title: 'Kendin kontrol et',
+    body: '<p>Artık üç soruyu sırayla sorabilirsin: Girdiler hangi kümeden? Hedefler hangi kümede? Gerçekte hangi çıktılar elde ediliyor?</p><p><b>f: A → B</b>, “f, A’dan B’ye bir fonksiyondur” demektir. <b>f(2) = 4</b>, 2 girdisinin çıktısının 4 olduğunu söyler. f(A) ise tek bir sayı değil, tüm girdilerin görüntülerinin kümesidir.</p><p>Sonlu A için grafikte yalnızca beş nokta var. Aralarını çizgiyle birleştirmiyoruz: örneğin 0,5 bu A’da yok. Önceki sayı makinesinde gerçek sayı aralığı vardı; aynı kural, farklı tanım kümeleriyle farklı grafik kapsamlarına sahip olabilir.</p>',
+    task: 'Kare kuralına dönüp 1 girdisini seç. (1, 1) noktasını ve 1 → 1 okunu karşılaştır.',
+    question: 'Yeni örnek: A = {1, 2}, B = {1, 2, 3}; 1 → 2 ve 2 → 2. Doğru açıklama hangisi?',
+    options: ['Fonksiyondur; görüntüsü {2}’dir.', 'Fonksiyon değildir; çıktılar aynı.', 'Fonksiyondur; görüntüsü {1, 2, 3}’tür.'], answer: 0,
+    correct: 'Her girdinin bir çıktısı var, dolayısıyla fonksiyon. Gerçekte yalnızca 2 elde edildiği için görüntü {2}.',
+    hint: 'Önce her girdiden kaç ok çıktığını kontrol et. Sonra yalnızca okların ulaştığı hedefleri görüntü kümesine al.',
+  },
+];
