@@ -15,7 +15,9 @@
 
 ## Contribution layer (PR 2)
 
-- `npm run check`: 57 tests, production build, and dist safety check passed.
+- `npm run check`: 56 tests, production build, and dist safety check passed.
+- `npm run check:docs`: contributor documentation links passed, separately required
+  by GitHub CI because `.vercelignore` excludes documentation from web builds.
 - All four issue-template YAML files parsed successfully with Ruby YAML.
 - Browser smoke checks loaded Calculus and EV's `renderer=off` route with the
   Unfoldia header and existing Turkish learning controls.

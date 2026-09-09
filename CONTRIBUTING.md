@@ -39,7 +39,7 @@ under the [MIT License](LICENSE). Do not assume that repository visibility or
 this license grants rights to third-party materials; check
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-Use Node 22 and `npm ci`. Keep changes scoped to a lab or platform contract. Run `npm run check` before opening a pull request. Include the learning objective, source provenance, tests, and desktop/mobile evidence for visual changes. State what was not verified.
+Use Node 22 and `npm ci`. Keep changes scoped to a lab or platform contract. Run `npm run check` and `npm run check:docs` before opening a pull request. The latter checks repository documentation excluded from Vercel uploads; CI runs both. Include the learning objective, source provenance, tests, and desktop/mobile evidence for visual changes. State what was not verified.
 
 Do not commit `.env`, credentials, real learner records, copyrighted textbook scans, or assets without redistribution permission. Dependency additions need a reason and license review. Do not disable security headers or tests just to make deployment succeed.
 
