@@ -1,168 +1,61 @@
 # Partwise
 
-**Learn how things work.** Parçaları keşfederek bütünü anlamayı hedefleyen eğitim platformu.
-İlk çalışan konu **EV Lab** (eski adı EV Atlas). Diğer konular henüz uygulanmadı.
+**Learn how things work.** An early-stage interactive education platform built with Vite and JavaScript. Current lesson content is Turkish.
 
-Ana proje: `/Users/burak/Repository/Projects/DevBD1/partwise`.
-Eski Codex çalışma yolu aynı klasöre sembolik bağlantıdır; ikinci bir proje kopyası değildir.
-Marka/alan adı uygunluğu henüz araştırılmadı; ad tescil edilmiş gibi sunulmaz.
+- **EV Lab:** eight systems, twenty component targets, guided learning and simplified Three.js mechanisms. Not a Tesla digital twin or service guide.
+- **Calculus Lab:** introductory sets/functions lessons with synchronized D3 diagrams, tables and graphs. Calculus I/II are planned, not complete courses.
 
-- [Uzun vadeli görsel ve platform planı](docs/ROADMAP.md)
-- [İlk araştırma görevi ve kaynak adayları](docs/RESEARCH-BRIEF.md)
-- [Ürün kimliği ve mimari yön](docs/PRODUCT.md)
+## Local development
 
-Mevcut `ev-atlas` localStorage anahtarı bilerek korunur; isim değişikliği ilerlemeyi sıfırlamaz.
-
-EV Atlas, elektrikli bir otomobilin bataryadan tekerleğe enerji ve hareket
-yolunu keşfederek öğrenmek için hazırlanmış, Türkçe bir yerel web uygulamasıdır.
-Başlangıç ve ileri seviye içerikleri aynı parçayı paylaşır; açıklama, denklem,
-görev ve bilgi kontrolü seviyeye göre değişir.
-
-Uygulama, **2018 Tesla Model 3 Long Range RWD'yi referans bağlam** olarak kullanır.
-Tesla tarafından hazırlanmış, onaylanmış veya gerçek aracın dijital ikizi değildir.
-Geometri özgün, düşük detaylı ve öğretim amaçlıdır; ölçeksiz parçalarla işlev,
-bağlantı ve hareket ilişkisini görünür kılar.
-
-## Çalıştırma
+Use Node 22 (`nvm use`) and npm:
 
 ```sh
-npm install
-npm run dev -- --port 5173
+npm ci
+npm run dev
+npm run check
+npm run preview
 ```
 
-Ardından <http://127.0.0.1:5173/> adresini açın. Üretim derlemesi ve testler:
+`check` runs all tests, a production build, and a build-output safety check. No account, API key, backend, analytics or external runtime script is required.
 
-```sh
-npm test
-npm run build
-```
-
-## Vercel'e dağıtım
-
-Proje kök dizini Vercel'e import edildiğinde `vercel.json` aşağıdaki ayarları
-otomatik olarak kullanır:
-
-- Framework: Vite
-- Install Command: `npm ci`
-- Build Command: `npm run build`
-- Output Directory: `dist`
-- Environment variable: gerekmez
-
-Vercel panelinden Git reposunu bağlamak veya yerel CLI ile denemek yeterlidir:
-
-```sh
-npx vercel
-npx vercel --prod
-```
-
-`.vercelignore`, geliştirme testlerini ve web bundle'ına dahil olmayan araştırma
-belgelerini deployment payload'ından çıkarır.
-
-WebGL başlatılamayan bir cihazda veya metin modunu özellikle denemek için:
-
-<http://127.0.0.1:5173/?renderer=off>
-
-Bu modda 3D sahne yerine parça açıklamaları, öğrenme rotası ve sayısal deneyler
-kullanılabilir kalır. Hesap, backend, API anahtarı veya ağ servisi gerekmez.
-
-## Uygulama akışı
-
-- İlk açılışta **Başlangıç** veya **İleri seviye** seçilir.
-- Rehberli giriş; bataryayı seçme, DC akışını gösterme, motoru çalıştırma ve
-  tekerleği inceleme adımlarından oluşur.
-- Serbest keşifte sistemler ve alt parçalar aranabilir; parça seçilebilir,
-  gizlenebilir, izole edilebilir, odaklanabilir veya üst seviyeye dönülebilir.
-- Montaj görünümü bağlantıları korur. Envanter görünümü parçaları ayrı hücrelere
-  dağıtır. “Parçaları ayır” görsel bir açıklama animasyonudur; servis söküm sırası
-  değildir.
-- Model sürüklenerek döndürülür, tekerlekle yakınlaşıp uzaklaşılır. Perspektif,
-  üstten, yandan ve görünümü sıfırlama kontrolleri bulunur. `/` aramayı açar;
-  `Escape` açık paneli kapatır.
-- Öğrenme ilerlemesi `localStorage` içindeki `ev-atlas` kaydında, başlangıç ve
-  ileri seviye için ayrı tutulur. Eski prototipteki kayıtlar silinmez ancak yeni
-  görevler otomatik tamamlanmış sayılmaz.
-
-## Model kapsamı
-
-Sahnede sekiz ana sistem ve yirmi anlamlı alt parça bulunur:
-
-| Sistem | Alt parçalar |
+| URL | Purpose |
 | --- | --- |
-| Batarya | Alt muhafaza, kapak, modüller, hücreler, bara bağlantıları, kontaktör grubu |
-| Motor | Stator, rotor, mil, muhafaza |
-| İnverter | Güç anahtarları, DC-link kondansatörü, soğutucu, kontrol kartı |
-| Mekanik aktarım | Giriş pinyonu, redüksiyon dişlisi, diferansiyel gövdesi, diferansiyel iç dişlileri, yarım akslar, tekerlekler |
-| Şarj cihazı (OBC) | Sistem düzeyinde gösterilir |
-| DC-DC dönüştürücü | Sistem düzeyinde gösterilir |
-| Termal yönetim | Sistem düzeyinde gösterilir |
-| BMS | Sistem düzeyinde gösterilir |
+| `/` | Platform catalog |
+| `/labs/ev` | EV Lab |
+| `/labs/calculus` | Sets and functions |
+| `/labs/calculus/machine` | Original function machine |
 
-Her kayıt; Türkçe/İngilizce ad, arama takma adları, üst parça, sistem, kaynak
-bağlantıları ve ayrı geometri/bilgi doğruluk notu taşır. “Temsili”, “referansa
-dayalı sadeleştirme”, “belgelenmiş”, “hesaplanmış” ve “varsayılmış” etiketleri
-birbirine karıştırılmaz.
+Legacy `/?lab=ev`, `/?lab=calculus`, `/?lab=calculus&lesson=machine`, and `/?renderer=off` remain supported. Use `/labs/ev?renderer=off` to test EV without WebGL.
 
-## Çalışan deneyler
+## Structure
 
-Detay panelindeki dört mekanizma, görüntü kodundan ayrı saf hesap fonksiyonları
-olarak uygulanır. Ekrandaki değerler açıkça öğretim amaçlı örnek parametrelerdir;
-Tesla paket veya kontrol kalibrasyonu değildir.
+```text
+src/
+  platform/          catalog, route resolver, lazy entry points
+  labs/
+    ev/              EV content, rendering, physics, progress, tests
+    calculus/        lessons, diagrams, pure math, progress, tests
+scripts/             build-output checks
+docs/                research, architecture, deployment instructions
+```
 
-1. **Batarya:** seri/paralel hücrelerden gerilim, kapasite, enerji, akım ve ideal
-   süre; `V = Ns × Vhücre`, `Ah = Np × Ahhücre`, `t = Ekullanılabilir / P`.
-2. **Motor:** tork ve devirden açısal hız ve mekanik güç; `P = T × ω`.
-3. **İnverter:** ideal üç fazlı sinüzoidal ortalama gösterimi; `Vfaz,tepe =
-   m × VDC / 2`. Çizim, gerçek PWM anahtarlama darbeleri değildir.
-4. **Aktarım:** redüksiyon oranı, çıkış torku/deviri ve açık diferansiyelde sol/sağ
-   tekerlek hız farkı; kayıplar ve lastik tutuşu idealleştirilmiştir.
+This is a modular single application, not a monorepo. Labs use full-document navigation, so scene resources and CSS cannot leak into the next lab. There is no need for React, Next.js, workspaces, or a backend merely to add a new subject. See [architecture](docs/ARCHITECTURE.md) and [contributing](CONTRIBUTING.md).
 
-Batarya, motor, inverter ve aktarım animasyonları yavaşlatılmış şematik
-gösterimlerdir. Üretici yazılımı, termal kalibrasyon, yol tutuşu, rejeneratif
-frenleme, gerçek güç sınırları veya tam araç dinamiği simüle edilmez. Azaltılmış
-hareket tercihi algılanır; bu durumda sayısal sonuçlar ve sabit durum korunur.
+## Vercel
 
-## Öğrenme rotası
+Import the repository with root directory `.` and Node **22.x**. Configuration in `vercel.json` sets Vite, `npm ci`, `npm run check`, and `dist`. No environment variables are needed. Start with a preview and follow the [deployment checklist](docs/DEPLOYMENT.md) before production.
 
-Sekiz bölüm, önerilen haftada iki bölüm ve bölüm başına 3 × 25 dakikalık tempoyla
-sunulur:
+This change does not deploy, push, configure your Vercel dashboard, or enable GitHub branch protections. CI performs checks only; it holds no deployment tokens.
 
-1. Enerji ve güç akışı
-2. Batarya paketi
-3. İnverter
-4. Elektrik motoru
-5. Redüksiyon ve diferansiyel
-6. Şarj ve yardımcı güç
-7. BMS
-8. Termal yönetim ve sistem bütünleştirme
+## Data and safety
 
-Bir bölüm, model üzerinde görevin ve seviyeye uygun bilgi kontrolünün ikisi de
-tamamlandığında ilerlemeye yazılır. Serbest keşif kilitli değildir.
+Learning progress stays in this browser's localStorage. Existing keys are preserved, including `ev-atlas`. Localhost, preview domains, and your production domain have **separate storage**; progress does not automatically migrate between them. No student data is sent to a backend. Hosting providers still receive ordinary HTTP requests.
 
-## Kod yapısı
+See [security policy](SECURITY.md), [third-party notices](THIRD_PARTY_NOTICES.md), and [EV research handoff](docs/EV-STATUS-HANDOFF.md). Research claims and sources are not automatically verified production specifications. Do not commit textbook PDFs, purchased assets, credentials, or student data.
 
-- `main.js` — uygulama durumu, seçim, arama, seviyeler, görevler ve paneller.
-- `shell.js`, `style.css` — masaüstü/mobil arayüz ve erişilebilir metin düzeni.
-- `atlas.js`, `content.js` — sistem/parça hiyerarşisi, kaynaklar, sözlük ve dersler.
-- `geometry.js` — özgün parametrik düşük detaylı araç geometrisi ve parça kimlikleri.
-- `scene.js`, `scene-layout.js`, `scene-motion.js` — Three.js sahnesi, kamera,
-  seçim, görünürlük, montaj/envanter yerleşimi ve hareket.
-- `physics.js` — test edilebilir batarya, motor, inverter ve aktarım hesapları.
-- `progress.js` — sürümlü ve seviyeye göre ayrılmış localStorage ilerlemesi.
-- `*.test.js` — veri bütünlüğü, fizik sınırları, ilerleme, geometri yerleşimi ve
-  entegrasyon kontrolleri.
+## License
 
-## Kaynaklar ve sınırlar
-
-Kaynaklar işlev ve servis bağlamını destekler; hiçbir kaynak bu eğitimsel
-geometriyi OEM CAD, gizli devre şeması veya üretim kalibrasyonu hâline getirmez.
-
-- [Tesla Model 3 Service Portal](https://service.tesla.com/en-US/vehicle-models/Model3)
-- [Tesla Model 3 Service Manual — 2017 index](https://service.tesla.com/docs/Model3/ServiceManual/index-model-3-2017.html)
-- [Tesla Model 3 Service Manual — English index](https://service.tesla.com/docs/Model3/ServiceManual/en-us/)
-- [U.S. DOE AFDC — How Do All-Electric Cars Work?](https://afdc.energy.gov/vehicles/how-do-all-electric-cars-work)
-- [Human Atlas](https://github.com/ashemag/human-atlas) yalnızca keşif etkileşimi
-  için tasarım referansıdır. Kaynak kodu veya anatomik 3D varlıklar kopyalanmamıştır.
-
-Bu proje bağımsız bir eğitim prototipidir; Tesla onayı veya servis talimatı
-iddiası taşımaz. Yüksek gerilimli araç sistemlerine müdahale yalnızca uygun
-eğitim, ekipman ve yetkilendirmeyle yapılmalıdır.
+Original source code and project-authored educational content are available
+under the [MIT License](LICENSE). This does not license third-party dependencies,
+referenced materials, or excluded local research files; see
+[third-party notices](THIRD_PARTY_NOTICES.md) for the provenance boundary.

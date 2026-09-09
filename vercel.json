@@ -2,6 +2,18 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
   "installCommand": "npm ci",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
+  "buildCommand": "npm run check",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/labs/ev", "destination": "/index.html" },
+    { "source": "/labs/calculus", "destination": "/index.html" },
+    { "source": "/labs/calculus/machine", "destination": "/index.html" }
+  ],
+  "headers": [{ "source": "/(.*)", "headers": [
+    { "key": "X-Content-Type-Options", "value": "nosniff" },
+    { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+    { "key": "X-Frame-Options", "value": "DENY" },
+    { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+    { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'" }
+  ]}]
 }
