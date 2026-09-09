@@ -1,10 +1,17 @@
 {
   "name": "partwise",
   "description": "Unfoldia — Explore the parts, understand the whole. Open-source interactive learning across subjects.",
+  "author": "Burak (DevBD1)",
+  "contributors": ["Unfoldia contributors"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevBD1/partwise.git"
+  },
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
+    "check:docs": "node scripts/check-docs.js",
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",

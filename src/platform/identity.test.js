@@ -33,8 +33,9 @@ test('rebrand retains package and persisted progress identities', () => {
   assert.ok(read('src/labs/ev/main.js').includes('ev-atlas'));
   for (const file of ['src/platform/catalog.js', 'src/labs/calculus/app.js', 'src/labs/calculus/sets-app.js', 'src/labs/ev/shell.js', 'index.html']) {
     assert.ok(read(file).includes('Unfoldia'), file);
-    // Exempt only the deliberately retained storage namespace, not visible marks.
-    assert.doesNotMatch(read(file).replaceAll('partwise:calculus:', ''), /partwise/i, file);
+    // Exempt retained storage and repository URLs, never visible brand strings.
+    const publicCopy = read(file).replaceAll('partwise:calculus:', '').replaceAll('https://github.com/DevBD1/partwise/', '');
+    assert.doesNotMatch(publicCopy, /partwise/i, file);
     if (file.endsWith('catalog.js') || file.includes('/calculus/')) {
       assert.match(read(file), />Unfoldia(?:<|\$)/, file);
     }

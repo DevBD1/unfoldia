@@ -13,6 +13,22 @@
   model code was not changed. Production hosting and physical-device testing are
   not covered by this local verification.
 
+## Contribution layer (PR 2)
+
+- `npm run check`: 56 tests, production build, and dist safety check passed.
+- `npm run check:docs`: contributor documentation links passed, separately required
+  by GitHub CI because `.vercelignore` excludes documentation from web builds.
+- All four issue-template YAML files parsed successfully with Ruby YAML.
+- Browser smoke checks loaded Calculus and EV's `renderer=off` route with the
+  Unfoldia header and existing Turkish learning controls.
+- Added contributor guides, governance, conduct, credit, and GitHub issue/PR templates.
+- English and Turkish community links inspected in Chrome at 390×844; copy wraps
+  without visible clipping and points to the existing repository contribution guide.
+- Added checks for local contributor-document links and bilingual community copy.
+- No permissions, moderation inbox, branch protections, or deployment settings
+  were created. GitHub issue-form rendering still needs confirmation after merge
+  to the default branch.
+
 ## PR #2 review follow-up
 
 - All four comments accepted: URL-carried catalog language, stronger branding and
@@ -24,3 +40,15 @@
   Physical iOS Safari focus/zoom behavior was not tested.
 - No new storage key or lesson language change. Query-only legacy links retain
   their platform-root meaning; external URLs and in-page fragments are untouched.
+
+## PR #3 review follow-up
+
+- All three suggestions accepted: checklist requires both check commands, community
+  section has a bilingual heading and `aria-labelledby`, and issue-form guidance
+  uses clickable links to the repository's current canonical `DevBD1/unfoldia` URL.
+- `npm run check`: 59 tests, build and dist safety checks passed. `check:docs`
+  also checks checklist commands and issue-form links; all four YAML files parse.
+- Chrome exposes the community heading as a named region in both languages;
+  Turkish 390px layout inspected with no clipping and no console errors recorded.
+- Localization documentation now describes URL-carried navigation preference.
+  GitHub form rendering remains a post-default-branch-merge check.

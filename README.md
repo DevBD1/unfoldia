@@ -59,6 +59,17 @@ Learning progress stays in this browser's localStorage. Existing keys are preser
 
 See [security policy](SECURITY.md), [third-party notices](THIRD_PARTY_NOTICES.md), and [EV research handoff](docs/EV-STATUS-HANDOFF.md). Research claims and sources are not automatically verified production specifications. Do not commit textbook PDFs, purchased assets, credentials, or student data.
 
+## Join the community
+
+Help improve an explanation, report a bug, review a source, translate an activity,
+or build a new learning slice. Start with [Contributing](CONTRIBUTING.md), then the
+[content guide](docs/CONTENT_GUIDE.md) or [localization guide](docs/LOCALIZATION.md).
+We welcome non-code contributions and respect contributors' preferred public credit.
+
+See [Unfoldia contributors](AUTHORS.md), [governance](GOVERNANCE.md), and our
+[code of conduct](CODE_OF_CONDUCT.md). Proposals and reviews happen in this
+repository's issues and pull requests; no separate hosted community is implied.
+
 ## License
 
 Original source code and project-authored educational content are available

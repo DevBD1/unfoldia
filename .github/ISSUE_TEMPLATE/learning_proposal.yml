@@ -1,0 +1,30 @@
+name: Learning activity or improvement
+description: Propose a subject slice, explanation, source correction, or accessibility improvement.
+title: "[Learning] "
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Learner and learning objective
+      description: Include subject, language, prerequisites, and the smallest useful scope.
+    validations:
+      required: true
+  - type: textarea
+    id: activity
+    attributes:
+      label: Proposed activity or improvement
+      description: What will the learner do, observe, and understand? How will understanding be checked?
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources, rights, and model limitations
+      description: Link supporting evidence; distinguish known facts from assumptions and proposed assets.
+    validations:
+      required: true
+  - type: textarea
+    id: access
+    attributes:
+      label: Accessibility and verification plan
+      description: Consider keyboard use, narrow screens, language, tests, and expert review.
