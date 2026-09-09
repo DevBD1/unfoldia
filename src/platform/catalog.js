@@ -1,5 +1,6 @@
 import './catalog.css';
 import { brand, catalogLanguage, catalogCopy } from './identity.js';
+import { preserveCatalogLanguage } from './navigation.js';
 export function renderCatalog(host, labs, notFound = false) {
   const url = new URL(location.href);
   const language = catalogLanguage(url, navigator.language);
@@ -24,4 +25,5 @@ export function renderCatalog(host, labs, notFound = false) {
     const link = document.createElement('a'); link.href = lab.path; link.textContent = copy.explore;
     card.append(heading, description, stages, link); grid.append(card);
   }
+  preserveCatalogLanguage(host, language);
 }

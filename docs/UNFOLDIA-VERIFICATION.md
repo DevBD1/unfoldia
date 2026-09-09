@@ -12,3 +12,15 @@
 - This is not a full repeat of EV assembly/cutaway/inventory visual acceptance;
   model code was not changed. Production hosting and physical-device testing are
   not covered by this local verification.
+
+## PR #2 review follow-up
+
+- All four comments accepted: URL-carried catalog language, stronger branding and
+  English-card shape guards, 16px select text, and capitalized Calculus wordmarks.
+- `npm run check`: 58 tests, production build, and dist safety check passed.
+- Chrome: wordmark and catalog → Calculus → catalog retained `lang=en`; switching
+  to Turkish updated the catalog links. No console errors recorded.
+- English 320px and Turkish 390px layouts inspected; select text measured 16px.
+  Physical iOS Safari focus/zoom behavior was not tested.
+- No new storage key or lesson language change. Query-only legacy links retain
+  their platform-root meaning; external URLs and in-page fragments are untouched.
