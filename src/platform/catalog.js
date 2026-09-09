@@ -14,6 +14,14 @@ export function renderCatalog(host, labs, notFound = false) {
     location.assign(url.href);
   });
   const grid = host.querySelector('.lab-grid');
+  const community = document.createElement('section');
+  community.className = 'community';
+  const invitation = document.createElement('p'); invitation.textContent = copy.community;
+  const contribute = document.createElement('a');
+  contribute.href = 'https://github.com/DevBD1/partwise/blob/main/CONTRIBUTING.md';
+  contribute.textContent = copy.contribute;
+  community.append(invitation, contribute);
+  grid.after(community);
   for (const lab of labs) {
     const card = document.createElement('article');
     const heading = document.createElement('h2'); heading.textContent = lab.title;

@@ -12,3 +12,17 @@
 - This is not a full repeat of EV assembly/cutaway/inventory visual acceptance;
   model code was not changed. Production hosting and physical-device testing are
   not covered by this local verification.
+
+## Contribution layer (PR 2)
+
+- `npm run check`: 57 tests, production build, and dist safety check passed.
+- All four issue-template YAML files parsed successfully with Ruby YAML.
+- Browser smoke checks loaded Calculus and EV's `renderer=off` route with the
+  Unfoldia header and existing Turkish learning controls.
+- Added contributor guides, governance, conduct, credit, and GitHub issue/PR templates.
+- English and Turkish community links inspected in Chrome at 390×844; copy wraps
+  without visible clipping and points to the existing repository contribution guide.
+- Added checks for local contributor-document links and bilingual community copy.
+- No permissions, moderation inbox, branch protections, or deployment settings
+  were created. GitHub issue-form rendering still needs confirmation after merge
+  to the default branch.

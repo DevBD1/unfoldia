@@ -1,0 +1,30 @@
+name: Translation proposal
+description: Propose a reviewed translation of a specific page or learning activity.
+title: "[Translation] "
+body:
+  - type: input
+    id: locale
+    attributes:
+      label: Target language and locale
+    validations:
+      required: true
+  - type: input
+    id: scope
+    attributes:
+      label: Page or lesson and source revision
+    validations:
+      required: true
+  - type: textarea
+    id: plan
+    attributes:
+      label: Translation scope and terminology
+      description: Read docs/LOCALIZATION.md. Note untranslated sections, directionality, and terms requiring subject expertise.
+    validations:
+      required: true
+  - type: textarea
+    id: review
+    attributes:
+      label: Review availability
+      description: Describe language and subject review needs. Do not list other people without permission.
+    validations:
+      required: true
